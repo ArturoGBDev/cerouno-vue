@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <new-song v-on:onSaveSong="handleSave"/>
+    <!-- <new-song v-on:onSaveSong="handleSave"/> -->
     <song-list :songs="songs" 
       v-on:onSelectSong='handleSelected'/>
     <song
@@ -14,6 +14,7 @@
 import Song from './components/Song'
 import SongList from './components/SongList'
 import NewSong from './components/NewSong'
+import SongClient from './api/songs'
 
 const song = {
  typing: false,
@@ -114,8 +115,11 @@ export default {
         name: ''
       },
       artist: song.artist,
-      songs: [song]
+      songs: []
     }
+  },
+  async mounted () {
+    this.songs = await SongClient.getAll()
   }
 }
 </script>

@@ -6,7 +6,16 @@
     <title>lyrics-vue</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" class="container">
+    	<router-link to="/songs">
+    		Songs
+    	</router-link>
+    	<router-link to="/songs/new">
+    		Create Song
+    	</router-link>
+
+    	<router-view></router-view>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
